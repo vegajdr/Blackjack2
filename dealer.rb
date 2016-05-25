@@ -1,9 +1,10 @@
 class Dealer
 
-attr_reader :deck
+attr_reader :deck, :hand
 
   def initialize
     @deck = Deck.new
+    @hand = Hand.new
 
   end
 
@@ -21,6 +22,10 @@ attr_reader :deck
     end
     player.hand.cards.push(@deck.draw)
 
+  end
+
+  def newhand
+    @hand = Hand.new
   end
 
 end

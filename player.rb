@@ -2,7 +2,7 @@ class Player
 
 attr_reader :wallet, :hand
 
-  def initialize money = nil, hand = Hand.new
+  def initialize money = 0, hand = Hand.new
     @wallet = money
     @hand = hand
   end
