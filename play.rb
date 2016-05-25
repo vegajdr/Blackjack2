@@ -25,20 +25,30 @@ until game_over
   dealer.deal_hand_to player
   dealer.deal_hand_to dealer
   until round_over
+    puts "Player hand:"
     puts player.hand.to_s
     puts "Hit?"
     input = gets.chomp
     if input == "y"
       dealer.hit player
+    else
+      nil
     end
+    puts player.hand.to_s
     if dealer.hand.value < 17
       dealer.hit dealer
     end
+    puts "Dealer hand:"
     puts dealer.hand.to_s
-    binding.pry
+    #binding.pry
     puts player.hand.beats? dealer.hand
     puts
     #binding.pry
+    if dealer.hand.blackjack?
+      puts "Dealer hit blakjack!"
+    elsif player.hand.blackjack?
+      puts "Player hit blackjack"
+    end
     if dealer.hand.busted? || player.hand.busted?
       puts "Round over!"
       round_over = true
